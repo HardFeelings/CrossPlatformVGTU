@@ -1,11 +1,16 @@
-package ru.shatsckij.crossplatform;
+package ru.shatsckij.forms;
+
+import ru.shatsckij.crossplatform.TaskSeven;
+import ru.shatsckij.mainFrame.UserController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class Form {
+public class FormSeven {
     public static Toolkit toolkit = Toolkit.getDefaultToolkit();
     public static Dimension dimension = toolkit.getScreenSize();
     public static int SIZE;
@@ -15,17 +20,17 @@ public class Form {
     private static TaskSeven taskSeven = new TaskSeven();
 
 
-    static JFrame GetJFrame(){
+    private static JFrame GetJFrame(){
         JFrame jframe = new JFrame();
         jframe.setVisible(true);
         jframe.setBounds(dimension.width/2 - 300,dimension.height/2 - 75,600,150);
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jframe.setResizable(true);
         jframe.setTitle("Task_7");
         return jframe;
     }
 
-    public static void main(String[] args) {
+    public void GetForm() {
         JFrame mainFrame = GetJFrame();
         JPanel mainPanel = new JPanel();
         mainFrame.add(mainPanel);
@@ -154,8 +159,16 @@ public class Form {
 
             }
         });
-
         mainPanel.revalidate();
+        mainFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                UserController userController = new UserController();
+                userController.mainFrame.setVisible(true);
+
+            }
+        });
 
 
 
