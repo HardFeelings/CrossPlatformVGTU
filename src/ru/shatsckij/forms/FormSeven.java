@@ -34,11 +34,6 @@ public class FormSeven {
         JFrame mainFrame = GetJFrame();
         JPanel mainPanel = new JPanel();
         mainFrame.add(mainPanel);
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
         GridBagLayout gridBagLayout = new GridBagLayout();
         mainPanel.setLayout(gridBagLayout);
         GridBagConstraints constraintsLabel = new GridBagConstraints();
