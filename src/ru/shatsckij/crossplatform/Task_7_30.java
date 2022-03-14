@@ -1,6 +1,6 @@
 package ru.shatsckij.crossplatform;
 
-public class Task30 {
+public class Task_7_30 {
     public static int task(int[] arr, int n) {
         if (n > arr.length)
             return -1;

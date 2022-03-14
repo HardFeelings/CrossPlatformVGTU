@@ -3,7 +3,7 @@ package ru.shatsckij.crossplatform;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class TaskSeven {
+public class Task_7_25 {
 
     static public Scanner sc = new Scanner(System.in);
 

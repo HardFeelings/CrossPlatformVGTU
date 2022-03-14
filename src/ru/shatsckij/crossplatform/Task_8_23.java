@@ -15,7 +15,7 @@ class Elem {
     }
 }
 
-public class Task23 {
+public class Task_8_23 {
     private static Elem[][] FillGrid(int[][] arr) {
         Elem[][] ret = new Elem[arr.length][arr[0].length];
         for (int i = 0; i < ret.length; i++) {

@@ -48,7 +48,7 @@ public class UserController {
                 int CurrentTask = (int)mainSpinner.getValue();
                 if(CurrentTask == 7){
                     mainFrame.setVisible(false);
-                    FormSeven formSeven = new FormSeven();
+                    Form_7_25 formSeven = new Form_7_25();
                     formSeven.GetForm();
                 }
             }

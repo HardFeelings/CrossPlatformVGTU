@@ -2,7 +2,7 @@ package ru.shatsckij.crossplatform;
 
 import java.util.Scanner;
 
-public class TaskSix {
+public class Task_6_1 {
 
 
     static double sum(double x, int n){

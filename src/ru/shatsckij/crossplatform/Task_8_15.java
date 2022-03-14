@@ -50,7 +50,7 @@ class Corner {
 }
 
 
-public class TaskEight {
+public class Task_8_15 {
 
     private static List<Corner> collectCorners(boolean[][] arr) {
         List<Corner> result = new ArrayList<Corner>();

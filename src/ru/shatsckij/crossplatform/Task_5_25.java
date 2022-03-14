@@ -2,7 +2,7 @@ package ru.shatsckij.crossplatform;
 
 import java.util.Scanner;
 
-public class TaskFive {
+public class Task_5_25 {
 
     public static void printTriangle(int h) {
         double col;
