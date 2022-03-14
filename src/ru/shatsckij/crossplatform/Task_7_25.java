@@ -5,8 +5,6 @@ import java.util.stream.IntStream;
 
 public class Task_7_25 {
 
-    static public Scanner sc = new Scanner(System.in);
-
     private int getSequenceLen(int[] arr, int start) {
         if (arr.length - start <= 2) return arr.length - start;
         int a = arr[start], b = arr[start + 1];
