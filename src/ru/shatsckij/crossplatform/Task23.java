@@ -1,6 +1,6 @@
 package ru.shatsckij.crossplatform;
 
-import ru.shatsckij.utils.print2d;
+import ru.shatsckij.utils.utils;
 
 class Result {
     int count = 0;
@@ -80,7 +80,7 @@ public class Task23 {
                 { 1, 1, 2, 2, 4 }
         };
         int[][] res = task(example);
-        print2d.printArray(res);
+        utils.print2dArray(res);
     }
 
     public static int[][] task(int[][] example) {
