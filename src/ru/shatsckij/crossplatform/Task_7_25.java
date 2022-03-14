@@ -3,9 +3,7 @@ package ru.shatsckij.crossplatform;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class TaskSeven {
-
-    static public Scanner sc = new Scanner(System.in);
+public class Task_7_25 {
 
     private int getSequenceLen(int[] arr, int start) {
         if (arr.length - start <= 2) return arr.length - start;

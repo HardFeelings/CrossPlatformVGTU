@@ -1,6 +1,6 @@
 package ru.shatsckij.forms;
 
-import ru.shatsckij.crossplatform.TaskSeven;
+import ru.shatsckij.crossplatform.Task_7_25;
 import ru.shatsckij.mainFrame.UserController;
 
 import javax.swing.*;
@@ -10,14 +10,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class FormSeven {
+public class Form_7_25 {
     public static Toolkit toolkit = Toolkit.getDefaultToolkit();
     public static Dimension dimension = toolkit.getScreenSize();
     public static int SIZE;
     private static String[] strArray;
     private static String str;
     public static int[] outputArray;
-    private static TaskSeven taskSeven = new TaskSeven();
+    private static Task_7_25 taskSeven = new Task_7_25();
 
 
     private static JFrame GetJFrame(){
@@ -159,13 +159,13 @@ public class FormSeven {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                UserController userController = new UserController();
-                userController.mainFrame.setVisible(true);
+                UserController.mainFrame.setVisible(true);
 
             }
         });
 
 
+        System.gc();
 
     }
 }
