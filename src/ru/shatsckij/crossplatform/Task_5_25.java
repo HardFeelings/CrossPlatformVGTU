@@ -39,11 +39,12 @@ public class Task_5_25 {
 
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Введите высоту(h>=1; h % 2 != 0): ");
         int h;
         try {
+            Scanner sc = new Scanner(System.in);
             h = sc.nextInt();
+            sc.close();
             if (h < 1 || h % 2 == 0) {
                 throw new RuntimeException();
             }
@@ -54,7 +55,6 @@ public class Task_5_25 {
 
         printTriangle(h);
 
-        sc.close();
         System.out.println();
     }
 }
