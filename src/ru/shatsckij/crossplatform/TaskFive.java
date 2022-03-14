@@ -44,7 +44,9 @@ public class TaskFive {
         int h;
         try {
             h = sc.nextInt();
-            if (h < 1 || h % 2 == 0) throw new RuntimeException();
+            if (h < 1 || h % 2 == 0) {
+                throw new RuntimeException();
+            }
         } catch (RuntimeException re) {
             h = 0;
             System.out.println("Не удовлетворяет условию");
@@ -52,7 +54,7 @@ public class TaskFive {
 
         printTriangle(h);
 
-
+        sc.close();
         System.out.println();
     }
 }

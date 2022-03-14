@@ -159,13 +159,13 @@ public class FormSeven {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                UserController userController = new UserController();
-                userController.mainFrame.setVisible(true);
+                UserController.mainFrame.setVisible(true);
 
             }
         });
 
 
+        System.gc();
 
     }
 }

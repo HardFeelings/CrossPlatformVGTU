@@ -148,6 +148,7 @@ public class TaskEight {
             stringList.add(scanner.nextLine().split(" "));
         }
         fRead.close();
+        scanner.close();
         int columns = stringList.get(0).length;
         boolean[][] Array = new boolean[stringList.size()][columns];
         Iterator<String[]> iter = stringList.iterator();

@@ -29,7 +29,10 @@ public class TaskSix {
         Scanner sc = new Scanner(System.in);
         System.out.print("Введите x: ");
         double x = sc.nextDouble();
-        if(Math.abs(x) > 1) throw new IllegalArgumentException("Не удовлетворяет условию");
+        if (Math.abs(x) > 1) {
+            sc.close();
+            throw new IllegalArgumentException("Не удовлетворяет условию");
+        }
         System.out.print("Введите кол-во шагов: ");
         int n = sc.nextInt();
         System.out.print("Введите e: ");
@@ -38,6 +41,6 @@ public class TaskSix {
         System.out.println("Сумма тех слагаемых, которые по абсолютной величине больше e: " + findSumAbs(x,e));
         System.out.println("Сумма тех слагаемых, которые по абсолютной величине больше e/10: " + findSumAbs(x,e/10));
         System.out.println("Значение функции с помощью методов Math: " + Math.log(1-x));
-
+        sc.close();
     }
 }
