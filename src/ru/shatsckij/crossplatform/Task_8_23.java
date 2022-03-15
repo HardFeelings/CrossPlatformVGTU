@@ -1,6 +1,6 @@
 package ru.shatsckij.crossplatform;
 
-import ru.shatsckij.utils.utils;
+import ru.shatsckij.utils.Utils;
 
 class Result {
     int count = 0;
@@ -64,7 +64,7 @@ public class Task_8_23 {
         }
     }
 
-    private static int[][] UnpackResult(Elem[][] grid){
+    private static int[][] UnpackResult(Elem[][] grid) {
         int[][] ret = new int[grid.length][grid[0].length];
         for (int i = 0; i < ret.length; i++) {
             for (int j = 0; j < ret[0].length; j++) {
@@ -73,20 +73,11 @@ public class Task_8_23 {
         }
         return ret;
     }
-    public static void main(String[] args) {
-        int[][] example = {
-                { 1, 2, 3, 9, 9 },
-                { 2, 2, 2, 9, 2 },
-                { 1, 1, 2, 2, 4 }
-        };
-        int[][] res = task(example);
-        utils.print2dArray(res);
+
+    public int[][] OutputArray(int[][] Array) {
+        Elem[][] grid = FillGrid(Array);
+        WalkGrid(grid);
+        return UnpackResult(grid);
     }
 
-    public static int[][] task(int[][] example) {
-        Elem[][] grid = FillGrid(example);
-        WalkGrid(grid);
-        int[][] res = UnpackResult(grid);
-        return res;
-    }
 }

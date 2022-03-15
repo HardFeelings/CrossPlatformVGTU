@@ -38,15 +38,6 @@ class Corner {
         return w;
     }
 
-    @Override
-    public String toString() {
-        return "Corner{" +
-                "y=" + y +
-                ", x=" + x +
-                ", h=" + h +
-                ", w=" + w +
-                '}';
-    }
 }
 
 

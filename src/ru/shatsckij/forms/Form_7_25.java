@@ -165,7 +165,6 @@ public class Form_7_25 {
         });
 
 
-        System.gc();
 
     }
 }
