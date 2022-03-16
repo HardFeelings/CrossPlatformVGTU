@@ -84,5 +84,6 @@ public class Form_7_30 {
             }
         });
         panel.revalidate();
+        frame.pack();
     }
 }

@@ -163,6 +163,7 @@ public class Form_7_25 {
 
             }
         });
+        mainFrame.pack();
 
 
 

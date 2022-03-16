@@ -19,7 +19,7 @@ public class UserController {
     private static JFrame GetMainFrame() {
         JFrame frame = new JFrame();
         frame.setBounds(dimension.width / 2 - 200, dimension.height / 2 - 50, 400, 100);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         return frame;
     }
@@ -101,6 +101,7 @@ public class UserController {
             }
         });
         mainPanel.revalidate();
+        mainFrame.pack();
 
     }
 }
