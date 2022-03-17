@@ -1,19 +1,23 @@
 package ru.shatsckij.mainFrame;
 
-import ru.shatsckij.forms.*;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
 
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import ru.shatsckij.forms.Form_7;
+import ru.shatsckij.forms.Form_8;
 
 public class UserController {
     private static Toolkit toolkit = Toolkit.getDefaultToolkit();
     private static Dimension dimension = toolkit.getScreenSize();
     public static JFrame mainFrame = GetMainFrame();
     public static String var_1 = "Вариант 25", var_2 = "Вариант 30";
+    private static ITask[] tasks = { new Form_7() ,new Form_8()};
 
 
     private static JFrame GetMainFrame() {
@@ -25,80 +29,29 @@ public class UserController {
     }
 
     public static void main(String[] args) {
-
         JPanel mainPanel = new JPanel();
         mainFrame.add(mainPanel);
-        GridBagLayout gridBagLayout = new GridBagLayout();
-        mainPanel.setLayout(gridBagLayout);
-        GridBagConstraints mainCon = new GridBagConstraints();
-        mainCon.weightx = 1.0f;
-        mainCon.weighty = 1.0f;
-        mainCon.fill = GridBagConstraints.BOTH;
-        mainCon.gridy = 0;
-        mainCon.gridx = 0;
-        mainCon.gridwidth = 1;
-        mainCon.gridheight = 1;
-        JLabel mainLabel = new JLabel("Выберите задание");
-        mainPanel.add(mainLabel, mainCon);
-        mainCon.gridx = 2;
-        mainCon.fill = GridBagConstraints.HORIZONTAL;
-        int x = 5;
-        SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel(7, 7, 13, 1);
-        JSpinner mainSpinner = new JSpinner(spinnerNumberModel);
-
-        mainPanel.add(mainSpinner, mainCon);
-        mainCon.gridx = 3;
+        mainPanel.setLayout(new GridLayout());
+        JComboBox<ITask> task_selector = new JComboBox<ITask>(tasks);
+        mainPanel.add(task_selector);
+        JComboBox<IVariant> variant_selector = new JComboBox<IVariant>(((ITask) task_selector.getSelectedItem()).GetVariants());
+        mainPanel.add(variant_selector);
         JButton mainButton = new JButton("Выполнить");
-        mainPanel.add(mainButton, mainCon);
-        JRadioButton varOneRB = new JRadioButton(var_1, true);
-        JRadioButton varTwoRB = new JRadioButton(var_2, false);
-        ButtonGroup radioGroup = new ButtonGroup();
-        radioGroup.add(varOneRB);
-        radioGroup.add(varTwoRB);
-        mainCon.gridy = 1;
-        mainCon.gridx = 0;
-        mainPanel.add(varOneRB, mainCon);
-        mainCon.gridx = 1;
-        mainPanel.add(varTwoRB, mainCon);
-
-        mainSpinner.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                if ((int) mainSpinner.getValue() == 7) {
-                    varOneRB.setText("Вариант 25");
-                    varTwoRB.setText("Вариант 30");
-                }
-                if ((int) mainSpinner.getValue() == 8) {
-                    varOneRB.setText("Вариант 15");
-                    varTwoRB.setText("Вариант 23");
-                }
+        mainPanel.add(mainButton);
+        task_selector.addActionListener(event -> {
+            variant_selector.removeAllItems();
+            ITask task = (ITask) task_selector.getSelectedItem();
+            if (task == null)
+                return;
+            for (IVariant v : task.GetVariants()) {
+                variant_selector.addItem(v);
             }
         });
-        mainButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int CurrentTask = (int) mainSpinner.getValue();
-                if (CurrentTask == 7) {
-                    if (varOneRB.isSelected()) { //Задание 7 Вариант 25
-                        mainFrame.setVisible(false);
-                        Form_7_25 formSeven = new Form_7_25();
-                        formSeven.GetForm();
-                    }
-                    if (varTwoRB.isSelected()) {//Задание 7 Вариант 30
-                        mainFrame.setVisible(false);
-                        Form_7_30 formSeven = new Form_7_30();
-                        formSeven.GetMainFrame();
-                    }
-                }
-                if (CurrentTask == 8) {
-                    if (varOneRB.isSelected()) {//Задание 8 Вариант 15
-
-                    }
-                    if (varTwoRB.isSelected()) {//Задание 8 Вариант 23
-
-                    }
-                }
-            }
+        mainButton.addActionListener(event -> {
+            IVariant variant = (IVariant) variant_selector.getSelectedItem();
+            if (variant == null)
+                return;
+            variant.Run();
         });
         mainPanel.revalidate();
         mainFrame.pack();

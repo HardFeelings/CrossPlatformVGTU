@@ -1,12 +1,21 @@
 package ru.shatsckij.forms;
 
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableCellEditor;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
-public class Form_8_15 {
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+
+import ru.shatsckij.mainFrame.IVariant;
+
+public class Form_8_15 implements IVariant {
 
     private JFrame GetFrame(){
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -27,16 +36,27 @@ public class Form_8_15 {
         GridBagLayout gridBagLayout = new GridBagLayout();
         mainFrame.add(mainPanel);
         mainPanel.setLayout(gridBagLayout);
-        ArrayTableModel atb = new ArrayTableModel(5,5);
+        ArrayTableModel atb = new ArrayTableModel(5, 5);
         JTable arrayTable = new JTable(atb);
 
         JScrollPane arrayTableScrollPane = new JScrollPane(arrayTable);
-        arrayTableScrollPane.setPreferredSize(new Dimension(400,400));
-        mainPanel.add(arrayTableScrollPane, new GridBagConstraints(0,0,1,1,1.0f,1.0f,
-                GridBagConstraints.WEST,GridBagConstraints.BOTH, new Insets(1,1,1,1),0,0));
+        arrayTableScrollPane.setPreferredSize(new Dimension(400, 400));
+        mainPanel.add(arrayTableScrollPane, new GridBagConstraints(0, 0, 1, 1, 1.0f, 1.0f,
+                GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0));
 
-        mainPanel.revalidate();;
+        mainPanel.revalidate();
+        ;
         mainFrame.pack();
+    }
+    
+    @Override
+    public String toString() {
+        return "Вариант 15";
+    }
+
+    @Override
+    public void Run() {
+        throw new RuntimeException("Not implemented yet");
     }
 
 }

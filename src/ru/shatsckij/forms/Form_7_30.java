@@ -1,20 +1,28 @@
 package ru.shatsckij.forms;
 
-import ru.shatsckij.crossplatform.Task_7_30;
-import ru.shatsckij.mainFrame.UserController;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Form_7_30 {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import ru.shatsckij.crossplatform.Task_7_30;
+import ru.shatsckij.mainFrame.IVariant;
+import ru.shatsckij.mainFrame.UserController;
+
+public class Form_7_30 implements IVariant{
     private static Toolkit toolkit = Toolkit.getDefaultToolkit();
     private static Dimension dimension = toolkit.getScreenSize();
 
@@ -85,5 +93,13 @@ public class Form_7_30 {
         });
         panel.revalidate();
         frame.pack();
+    }
+    @Override
+    public String toString() {
+        return "Вариант 30";
+    }
+    @Override
+    public void Run() {
+        this.GetMainFrame();
     }
 }
