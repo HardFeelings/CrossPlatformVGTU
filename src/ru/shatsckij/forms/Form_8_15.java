@@ -29,6 +29,7 @@ public class Form_8_15 {
         mainPanel.setLayout(gridBagLayout);
         ArrayTableModel atb = new ArrayTableModel(5,5);
         JTable arrayTable = new JTable(atb);
+
         JScrollPane arrayTableScrollPane = new JScrollPane(arrayTable);
         arrayTableScrollPane.setPreferredSize(new Dimension(400,400));
         mainPanel.add(arrayTableScrollPane, new GridBagConstraints(0,0,1,1,1.0f,1.0f,
@@ -64,7 +65,7 @@ class ArrayTableModel extends AbstractTableModel {
         return columnCount;
     }
 
-    @Override
+
     public Object getValueAt(int rowIndex, int columnIndex) {
         return  null;
     }
@@ -73,6 +74,15 @@ class ArrayTableModel extends AbstractTableModel {
         String[] rowTable = new String[getColumnCount()];
         rowTable = row;
         dataList.add(rowTable);
+    }
+
+    public void setValueAt(Object value, int row, int col) {
+        dataList.get(row)[col] = String.valueOf(value);
+    }
+
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return true;
     }
 
 }
