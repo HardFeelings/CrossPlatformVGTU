@@ -1,39 +1,50 @@
-package ru.shatsckij.crossplatform;
+package ru.shatsckij.forms;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class Form {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+
+import ru.shatsckij.crossplatform.Task_7_25;
+import ru.shatsckij.mainFrame.IVariant;
+import ru.shatsckij.mainFrame.UserController;
+
+public class Form_7_25 implements IVariant{
     public static Toolkit toolkit = Toolkit.getDefaultToolkit();
     public static Dimension dimension = toolkit.getScreenSize();
     public static int SIZE;
     private static String[] strArray;
     private static String str;
     public static int[] outputArray;
-    private static TaskSeven taskSeven = new TaskSeven();
+    private static Task_7_25 taskSeven = new Task_7_25();
 
 
-    static JFrame GetJFrame(){
+    private static JFrame GetJFrame(){
         JFrame jframe = new JFrame();
         jframe.setVisible(true);
         jframe.setBounds(dimension.width/2 - 300,dimension.height/2 - 75,600,150);
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jframe.setResizable(true);
         jframe.setTitle("Task_7");
         return jframe;
     }
 
-    public static void main(String[] args) {
+    public void GetForm() {
         JFrame mainFrame = GetJFrame();
         JPanel mainPanel = new JPanel();
         mainFrame.add(mainPanel);
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
         GridBagLayout gridBagLayout = new GridBagLayout();
         mainPanel.setLayout(gridBagLayout);
         GridBagConstraints constraintsLabel = new GridBagConstraints();
@@ -154,10 +165,28 @@ public class Form {
 
             }
         });
-
         mainPanel.revalidate();
+        mainFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                UserController.mainFrame.setVisible(true);
+
+            }
+        });
+        mainFrame.pack();
 
 
 
+    }
+
+    @Override
+    public String toString() {
+        return "Вариант 25";
+    }
+
+    @Override
+    public void Run() {
+        this.GetForm();
     }
 }
