@@ -26,6 +26,14 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
+        try {
+
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         JFrame mainFrame = GetForm();
         JPanel mainPanel = new JPanel();
         GridBagLayout gbd = new GridBagLayout();
