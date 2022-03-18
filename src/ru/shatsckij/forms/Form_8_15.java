@@ -30,7 +30,7 @@ public class Form_8_15 implements IVariant {
     }
 
 
-    public static void main(String[] args) {
+    public void GetForm(){
         JFrame mainFrame = new Form_8_15().GetFrame();
         JPanel mainPanel = new JPanel();
         GridBagLayout gridBagLayout = new GridBagLayout();
@@ -45,7 +45,7 @@ public class Form_8_15 implements IVariant {
                 GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0));
 
         mainPanel.revalidate();
-        ;
+
         mainFrame.pack();
     }
     
@@ -55,9 +55,7 @@ public class Form_8_15 implements IVariant {
     }
 
     @Override
-    public void Run() {
-        throw new RuntimeException("Not implemented yet");
-    }
+    public void Run() {this.GetForm();}
 
 }
 

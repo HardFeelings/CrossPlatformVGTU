@@ -16,7 +16,6 @@ public class UserController {
     private static Toolkit toolkit = Toolkit.getDefaultToolkit();
     private static Dimension dimension = toolkit.getScreenSize();
     public static JFrame mainFrame = GetMainFrame();
-    public static String var_1 = "Вариант 25", var_2 = "Вариант 30";
     private static ITask[] tasks = { new Form_7() ,new Form_8()};
 
 
