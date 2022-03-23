@@ -38,10 +38,14 @@ class Corner {
         return w;
     }
 
+    @Override
+    public String toString() {
+        return "{ " + y + ", " + x + ", " + h + ", " + w + " }";
+    }
 }
 
 
-public class Task_8_15 {
+public class Task_8_19 {
 
     private static List<Corner> collectCorners(boolean[][] arr) {
         List<Corner> result = new ArrayList<Corner>();
@@ -131,36 +135,9 @@ public class Task_8_15 {
         return true;
     }
 
-    private static boolean[][] ReadFile() throws IOException {
-        FileReader fRead = new FileReader("input.txt");
-        Scanner scanner = new Scanner(fRead);
-        List<String[]> stringList = new ArrayList<>();
-        while(scanner.hasNextLine()) {
-            stringList.add(scanner.nextLine().split(" "));
-        }
-        fRead.close();
-        scanner.close();
-        int columns = stringList.get(0).length;
-        boolean[][] Array = new boolean[stringList.size()][columns];
-        Iterator<String[]> iter = stringList.iterator();
-        for (int i = 0; i < Array.length; i++) {
-            String[] s = iter.next();
-            for (int j = 0; j < columns; j++) {
-                Array[i][j] = Boolean.parseBoolean(s[j]);
-            }
-        }
-        return Array;
-    }
 
-    private static void WriteFile(List<Corner> list) throws IOException {
-        FileWriter fWrite = new FileWriter("output.txt");
-        fWrite.write(String.valueOf(list.get(0)));
-        fWrite.close();
-    }
+    public String GetTask(boolean[][] arr){
 
-    public static void main(String[] args) throws IOException {
-
-        boolean[][] arr = ReadFile();
         List<Corner> corners = collectCorners(arr);
         for (Corner item : corners) {
             getHeigth(arr, item);
@@ -178,7 +155,6 @@ public class Task_8_15 {
                 return 0;
             }
         }).toList();
-        WriteFile(rects);
-
+        return rects.get(0).toString();
     }
 }

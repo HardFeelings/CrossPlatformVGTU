@@ -5,7 +5,7 @@ import ru.shatsckij.mainFrame.IVariant;
 
 public class Form_8 implements ITask {
     static IVariant[] variants = {
-            new Form_8_15(),
+            new Form_8_19(),
             new Form_8_23()
     };
 

@@ -4,10 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import ru.shatsckij.forms.Form_7;
 import ru.shatsckij.forms.Form_8;
@@ -28,6 +25,14 @@ public class UserController {
     }
 
     public static void main(String[] args) {
+        try {
+
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         JPanel mainPanel = new JPanel();
         mainFrame.add(mainPanel);
         mainPanel.setLayout(new GridLayout());
@@ -50,6 +55,7 @@ public class UserController {
             IVariant variant = (IVariant) variant_selector.getSelectedItem();
             if (variant == null)
                 return;
+
             variant.Run();
         });
         mainPanel.revalidate();
